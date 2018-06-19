@@ -12,7 +12,7 @@ namespace DiscordAPI
 
         public static Boolean SignIn()
         {
-            try { Token = (string)PostRequest("https://discordapp.com/api/v6/auth/login", "{\"email\":\"" + Config.CurConfig["SignIn"]["Email"] + "\",\"password\":\"" + Config.CurConfig["SignIn"]["Password"] + "\"}", false, "POST")["token"]; Console.WriteLine(Token); return true; }
+            try { Token = (string)PostRequest("https://discordapp.com/api/v6/auth/login", "{\"email\":\"" + Config.CurConfig["SignIn"]["Email"] + "\",\"password\":\"" + Config.CurConfig["SignIn"]["Password"] + "\"}", false, "POST")["token"]; return true; }
             catch { return false; }
         }
         
