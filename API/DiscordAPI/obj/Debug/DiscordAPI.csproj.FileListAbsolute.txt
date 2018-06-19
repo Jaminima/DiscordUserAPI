@@ -1,0 +1,7 @@
+C:\Users\oscar\Desktop\DiscordUserAPI\Export\DiscordAPI.dll
+C:\Users\oscar\Desktop\DiscordUserAPI\Export\DiscordAPI.pdb
+C:\Users\oscar\Desktop\DiscordUserAPI\API\DiscordAPI\obj\Debug\DiscordAPI.csprojAssemblyReference.cache
+C:\Users\oscar\Desktop\DiscordUserAPI\API\DiscordAPI\obj\Debug\DiscordAPI.csproj.CoreCompileInputs.cache
+C:\Users\oscar\Desktop\DiscordUserAPI\API\DiscordAPI\obj\Debug\DiscordAPI.csproj.CopyComplete
+C:\Users\oscar\Desktop\DiscordUserAPI\API\DiscordAPI\obj\Debug\DiscordAPI.dll
+C:\Users\oscar\Desktop\DiscordUserAPI\API\DiscordAPI\obj\Debug\DiscordAPI.pdb
