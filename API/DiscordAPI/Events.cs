@@ -18,11 +18,12 @@ namespace DiscordAPI
         public static string JoinServer(string Code)
         {
             Newtonsoft.Json.Linq.JObject Join=DiscordInterface.PostRequest("https://discordapp.com/api/v6/invite/"+Code,true,"POST");
-            return (string)Join["channel"]["id"];
+            return (string)Join["guild"]["id"];
         }
         public static bool SendMessage(string ChannelID,string Message)
         {
-            try{Newtonsoft.Json.Linq.JObject Mes = DiscordInterface.PostRequest("https://discordapp.com/api/v6/channels/" + ChannelID + "/messages", "{\"content\":\"" + Message + "\",\"nonce\":\"618169420211337420\",\"tts\":false}", true, "POST");
+            try{
+                Newtonsoft.Json.Linq.JObject Mes = DiscordInterface.PostRequest("https://discordapp.com/api/v6/channels/" + ChannelID + "/messages", "{\"content\":\"" + Message + "\",\"nonce\":\"618169420211337420\",\"tts\":false}", true, "POST");
                 return true;}
             catch { return false; }
         }
@@ -34,6 +35,24 @@ namespace DiscordAPI
         public static Newtonsoft.Json.Linq.JObject GetMessages(string ChannelID)
         {
             return DiscordInterface.PostRequest("https://discordapp.com/api/v6/channels/" + ChannelID + "/messages?limit=10", true, "GET");
+        }
+        public static Newtonsoft.Json.Linq.JArray GetTextChannels(string GuildID)
+        {
+            Newtonsoft.Json.Linq.JArray Rooms = Newtonsoft.Json.Linq.JArray.Parse("[]");
+            Newtonsoft.Json.Linq.JObject RoomData = GetAllChannels(GuildID);
+            foreach (Newtonsoft.Json.Linq.JObject Room in RoomData["Content"])
+            {
+                if ((int)Room["type"] == 0)
+                {
+                    Rooms.Add(Room);
+                }
+            }
+            Console.WriteLine(Rooms);
+            return Rooms;
+        }
+        public static Newtonsoft.Json.Linq.JObject GetAllChannels(string GuildID)
+        {
+            return DiscordInterface.PostRequest("https://discordapp.com/api/v6/guilds/" + GuildID + "/channels", true, "GET");
         }
     }
 }
