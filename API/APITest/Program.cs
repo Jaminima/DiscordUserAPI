@@ -25,6 +25,7 @@ namespace APITest
                 }
                 catch { }
             }
+            DiscordAPI.Events.LeaveServer(Guild);
             //Console.WriteLine(DiscordAPI.Events.CreateInvite(Channel));
             //Ts.Add(new Thread(()=>DiscordAPI.DiscordInterface.Listen(Channel,Handler)));
             //Ts[Ts.Count-1].Start();

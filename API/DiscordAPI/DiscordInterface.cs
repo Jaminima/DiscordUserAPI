@@ -12,7 +12,7 @@ namespace DiscordAPI
 
         public static Boolean SignIn()
         {
-            try { Token = (string)PostRequest("https://discordapp.com/api/v6/auth/login", "{\"email\":\"" + Config.CurConfig["SignIn"]["Email"] + "\",\"password\":\"" + Config.CurConfig["SignIn"]["Password"] + "\"}", false, "POST")["token"]; Console.WriteLine(Token); return true; }
+            try { Token = (string)PostRequest("https://discordapp.com/api/v6/auth/login", "{\"email\":\"" + Config.CurConfig["SignIn"]["Email"] + "\",\"password\":\"" + Config.CurConfig["SignIn"]["Password"] + "\"}", false, "POST")["token"]; return true; }
             catch { return false; }
         }
         
@@ -29,6 +29,7 @@ namespace DiscordAPI
             }
             WebResponse Res = Req.GetResponse();
             string D = new StreamReader(Res.GetResponseStream()).ReadToEnd();
+            if (Type == "DELETE") { return null; }
             if (D[0].ToString() == "[") { return (Newtonsoft.Json.Linq.JObject)Newtonsoft.Json.JsonConvert.DeserializeObject("{Content:"+D+"}"); } else { return Newtonsoft.Json.Linq.JObject.Parse(D); }
         }
 

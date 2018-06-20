@@ -47,12 +47,15 @@ namespace DiscordAPI
                     Rooms.Add(Room);
                 }
             }
-            Console.WriteLine(Rooms);
             return Rooms;
         }
         public static Newtonsoft.Json.Linq.JObject GetAllChannels(string GuildID)
         {
             return DiscordInterface.PostRequest("https://discordapp.com/api/v6/guilds/" + GuildID + "/channels", true, "GET");
+        }
+        public static void LeaveServer(string GuildID)
+        {
+            DiscordInterface.PostRequest("https://discordapp.com/api/v6/users/@me/guilds/" + GuildID, true,"DELETE");
         }
     }
 }
