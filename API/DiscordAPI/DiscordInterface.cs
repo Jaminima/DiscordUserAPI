@@ -12,6 +12,7 @@ namespace DiscordAPI
 
         public static Boolean SignIn()
         {
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             try { Token = (string)PostRequest("https://discordapp.com/api/v6/auth/login", "{\"email\":\"" + Config.CurConfig["SignIn"]["Email"] + "\",\"password\":\"" + Config.CurConfig["SignIn"]["Password"] + "\"}", false, "POST")["token"]; return true; }
             catch { return false; }
         }

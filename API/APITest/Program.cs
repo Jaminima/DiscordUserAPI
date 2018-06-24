@@ -13,7 +13,7 @@ namespace APITest
         static void Main(string[] args)
         {
             DiscordAPI.Events.Start();
-            string Guild = DiscordAPI.Events.JoinServer("tdjt9B");
+            string Guild = DiscordAPI.Events.JoinServer("sKb9a5");
             Newtonsoft.Json.Linq.JArray GuildChannels = DiscordAPI.Events.GetTextChannels(Guild);
             Console.WriteLine(GuildChannels);
             foreach (Newtonsoft.Json.Linq.JObject TChannel in GuildChannels)
