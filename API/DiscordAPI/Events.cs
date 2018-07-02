@@ -20,6 +20,11 @@ namespace DiscordAPI
             Newtonsoft.Json.Linq.JObject Join=DiscordInterface.PostRequest("https://discordapp.com/api/v6/invite/"+Code,true,"POST");
             return (string)Join["guild"]["id"];
         }
+        public static string JoinDM(string Code)
+        {
+            Newtonsoft.Json.Linq.JObject Join = DiscordInterface.PostRequest("https://discordapp.com/api/v6/invite/" + Code, true, "POST");
+            return (string)Join["channel"]["id"];
+        }
         public static bool SendMessage(string ChannelID,string Message)
         {
             try{
@@ -29,7 +34,12 @@ namespace DiscordAPI
         }
         public static string CreateInvite(string ChannelID)
         {
-            Newtonsoft.Json.Linq.JObject Inv = DiscordInterface.PostRequest("https://discordapp.com/api/v6/channels/" + ChannelID + "/invites", "{\"max_age\":null,\"max_uses\":0,\"temporary\":false}", true, "POST");
+            Newtonsoft.Json.Linq.JObject Inv = DiscordInterface.PostRequest("https://discordapp.com/api/v6/channels/" + ChannelID + "/invites", "{\"max_age\":0,\"max_uses\":0,\"temporary\":false}", true, "POST");
+            return (string)Inv["code"];
+        }
+        public static string CreateDMInvite(string ChannelID)
+        {
+            Newtonsoft.Json.Linq.JObject Inv = DiscordInterface.PostRequest("https://discordapp.com/api/v6/channels/" + ChannelID + "/invites","{}", true, "POST");
             return (string)Inv["code"];
         }
         public static Newtonsoft.Json.Linq.JObject GetMessages(string ChannelID)
