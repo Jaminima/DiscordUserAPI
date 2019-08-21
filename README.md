@@ -1,8 +1,8 @@
 # Discord User API
-This Library is designed to allow for easy interaction with discord
+This Library is designed to allow for easy interaction with discord</br>
 As if you were a real user account, instead of a bot
 
-This is acheived by replicating the methods used by a normal account
+This is acheived by replicating the methods used by a normal account</br>
 For authentication and interaction
 # Example
 This simple code will login, join a discord and send a message to every channel inside of the guild
@@ -22,7 +22,7 @@ This simple code will login, join a discord and send a message to every channel 
         //User sends a message to each channel id in the list
         NewInstance.Actions.SendMessage(ChannelID, "Hello World");
     }
-For an example of what can be acheived using this library, look at [DiscordWalker](https://github.com/Jaminima/DiscordWalker), 
+For an example of what can be acheived using this library, look at [DiscordWalker](https://github.com/Jaminima/DiscordWalker), </br>
 Which will give you an idea of the potential power of this library.
 # Library Reference
 Here you will find a reference to all functions and methods in the library
@@ -47,6 +47,6 @@ Here you will find a reference to all functions and methods in the library
 ## NetworkInterface
 `Bool SignIn(string Email, string Password)` Will attempt to sign into the given user account
 
-`JToken Request(string URL, string Data="", Bool WithAuthToken=false, string Method="POST")` returns the formatted JSON response from the performed request
-`WithAuthToken` Indicates if the  stored auth token should be included in headers
+`JToken Request(string URL, string Data="", Bool WithAuthToken=false, string Method="POST")` returns the formatted JSON response from the performed request</br>
+`WithAuthToken` Indicates if the  stored auth token should be included in headers</br>
 This function will require some experimentation and trial on your part.
