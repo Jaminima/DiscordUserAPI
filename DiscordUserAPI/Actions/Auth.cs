@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace DiscordUserAPI
+namespace DiscordUserAPI.Actions
 {
     public static class Auth
     {

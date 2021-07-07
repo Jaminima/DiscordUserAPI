@@ -1,5 +1,6 @@
 ﻿using System;
-using DiscordUserAPI;
+using DiscordUserAPI.Actions;
+using System.Threading;
 
 namespace Example
 {
@@ -16,7 +17,9 @@ namespace Example
 
         static async void App()
         {
-            var t = await Auth.Login("trialaccount77@gmail.com", "Tr1alAcc0unt");
+            var t = await Auth.Login("trialaccount79@gmail.com", "Tr1alAcc0unt78");
+            Thread.Sleep(5000);
+            var i = await Server.JoinUsingInvite("8EKnGgWx", t);
         }
     }
 }
